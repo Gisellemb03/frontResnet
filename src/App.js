@@ -42,23 +42,30 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <form class="form-horizontal" >  
+        <h1>API RESNET - Giselle Mendoza Barradas</h1>
+        <p>La presente página realiza busqueda de tipos de animales</p>
+        {imageUrl ? (
+          <div class="card mb-3" style={{maxWidth:"800px"}}>
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src={ imageUrl} class="img-fluid rounded-start" alt="..."/>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="titulo de la tarjeta">Nombre: {imageName}</h5>
+                <h5 class="titulo de la tarjeta">Clase: {imageClass}</h5>
+                <p class="card-text"> Animal Encontrado </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        ):(<div>Selecciona una imagen y enviala</div>)}
+        <form class="form-horizontal" >  
       <div class="input-group">
         <input onChange={handleImageAsFile} type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload"/>
         <button onClick={handleSubmit} class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Enviar</button>
         </div>
         </form>
-        {imageUrl ? (
-          <div class="card mb-3">
-          <img src={ imageUrl} class="card-img-top" alt="Foto mascota" style={{maxHeight:"400px", maxWidth:"600px"}}/>
-        <div class="card-body">
-              <h3 class="card-title">Nombre: {imageName}</h3>
-              <h5 class="card-title">Clase: { imageClass}</h5>
-          <p class="card-text">Imagen detectada con RESTNET API</p>
-          
-        </div>
-</div>
-        ):(<div>No se a seleccionado la imagen</div>)}
       
       </header>
     </div>
